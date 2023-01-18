@@ -31,7 +31,7 @@ namespace Bookitties.UI
                     };
                 }
 
-                var flagRegex = new Regex("^--([a-zA-Z]+)=(.+)$");
+                var flagRegex = new Regex("--([a-zA-Z-]+)=(.+)");
                 foreach (var arg in args[1..])
                 {
                     var match = flagRegex.Match(arg);
@@ -39,7 +39,7 @@ namespace Bookitties.UI
                     {
                         throw new ValidationException("Not valid argument syntax. Example: --author=Twen");
                     }
-
+                    
                     flags.Add(new FlagAttribute(match.Groups[1].Value, match.Groups[2].Value));
                 }
             });

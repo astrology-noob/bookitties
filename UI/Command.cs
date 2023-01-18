@@ -60,7 +60,7 @@ namespace Bookitties.UI
 
                 if (books.Count == 0)
                 {
-                    Console.WriteLine("Books was not found :(");
+                    Console.WriteLine("Books were not found :(");
                     return;
                 }
 
