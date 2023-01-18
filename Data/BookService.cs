@@ -1,13 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bookitties.Data
+﻿namespace Bookitties.Data
 {
-    internal class BookService
+    public class BookService
     {
         private AppDBContext _dbContext;
 
@@ -36,8 +29,8 @@ namespace Bookitties.Data
         {
             return await Task.Run(() => option switch
             {
-                PropertyEnum.Author => books.Where(book => book.Author.Contains(desiredValue.ToString())).Select(book => book).ToList(),
-                PropertyEnum.Title => books.Where(book => book.Title.Contains(desiredValue.ToString())).Select(book => book).ToList(),
+                PropertyEnum.Author => books.Where(book => book.Author.Contains((string)desiredValue)).Select(book => book).ToList(),
+                PropertyEnum.Title => books.Where(book => book.Title.Contains((string)desiredValue)).Select(book => book).ToList(),
                 PropertyEnum.Published => books.Where(book => book.Published == (DateTime)desiredValue).Select(book => book).ToList(),
                 _ => throw new NotImplementedException()
             } ?? new List<Book>());

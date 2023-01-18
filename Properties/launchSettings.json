@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Bookitties": {
+      "commandName": "Project",
+      "commandLineArgs": "get"
+    }
+  }
+}
